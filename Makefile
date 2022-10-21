@@ -1,0 +1,2 @@
+install-deps:
+	npm ci
