@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node
         with:
-          node-version: '16.x'
+          node-version: '14.x'
       - run: make install
       - run: make test
       - run: make lint
