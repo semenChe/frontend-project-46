@@ -14,6 +14,9 @@ test:
 test-coverage:
 	NODE_OPTIONS=--experimental-vm-modules npx jest --bail --coverage --coverageProvider=v8
 
+test-watch:
+    npx jest --watch
+
 lint:
 	npx eslint .
 
