@@ -3,6 +3,9 @@
 ### maintainability codeclimate
 <a href="https://codeclimate.com/github/semenChe/frontend-project-46/maintainability"><img src="https://api.codeclimate.com/v1/badges/a4f12b1ecabfe4cea78f/maintainability" /></a>
 
+### Test Coverage Badge
+<a href="https://codeclimate.com/github/semenChe/frontend-project-44/test_coverage"><img src="https://api.codeclimate.com/v1/badges/8150bd62e4ed95fbe8ea/test_coverage" /></a>
+
 ## Пример запуска вычислителя отличий. Обращение к файлам через относительный и абсолютный путь.
 <a href="https://asciinema.org/a/1rzdwuYPq8BdYRvuLXD8UwRLL" target="_blank"><img src="https://asciinema.org/a/1rzdwuYPq8BdYRvuLXD8UwRLL.svg" /></a>
 
