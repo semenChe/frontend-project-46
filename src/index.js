@@ -1,10 +1,8 @@
-import { readFileSync } from 'fs';
 import _ from 'lodash';
+import getParsedData from './parsers.js'
 
 export default (path1, path2) => {
     const result = [];
-
-    const getParsedData = (path) => JSON.parse(readFileSync(path, 'utf-8'));
     const data1 = getParsedData(path1);
     const data2 = getParsedData(path2);
 
