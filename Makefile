@@ -1,12 +1,11 @@
-install: install-deps
+install:
+    install-deps
 	
-
 run:
 	bin/nodejs-package.js 10
 
 install-deps:
 	npm ci
-
 
 test:
 	NODE_OPTIONS=--experimental-vm-modules npx jest
@@ -23,4 +22,5 @@ lint:
 publish:
 	npm publish
 
-.PHONY: test
+.PHONY:
+    test
