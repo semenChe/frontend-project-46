@@ -14,6 +14,9 @@
 ## Пример запуска вычислителя отличий с файлами формата yaml b yml. Обращение к файлам через относительный и абсолютный путь.
 <a href="https://asciinema.org/a/GdaQkkFJNnNiaKekiSQM5141e" target="_blank"><img src="https://asciinema.org/a/GdaQkkFJNnNiaKekiSQM5141e.svg" /></a>
 
+## Пример запуска вычислителя для файлов, имеющих вложенные структуры
+<a href="https://asciinema.org/a/pJ0xviFqMoxu0WcikASJKZh5l" target="_blank"><img src="https://asciinema.org/a/pJ0xviFqMoxu0WcikASJKZh5l.svg" /></a>
+
 ## Рекомендуемые минимальные требования к системе:
 ### Минимальные версии ОС:
 * Windows 10

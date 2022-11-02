@@ -8,5 +8,5 @@ export default (configPath) => {
     if (format === '.json') {
         return JSON.parse(readFileSync(configPath, 'utf-8'));
     }
-    return yaml.load(readFileSync(configPath, 'utf8'));
+    return yaml.load(readFileSync(configPath, 'utf-8'));
 };

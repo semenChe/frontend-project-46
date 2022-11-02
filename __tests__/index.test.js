@@ -2,6 +2,7 @@ import genDiff from '../src/index.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import path from 'path';
+import fs from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -16,12 +17,12 @@ test('genDiff', () => {
     const patch5 = getFixturePath('file5.yml');
     const patch6 = getFixturePath('file6.yml');
 
-    const result1 = '{\n- follow: false\n  host: hexlet.io\n- proxy: 123.234.53.22\n- timeout: 50\n+ timeout: 20\n+ verbose: true\n}';
+    const result = fs.readFileSync(getFixturePath('result.txt'), 'utf8');
 
-    expect(genDiff(patch1, patch2)).toEqual(result1);
-    expect(genDiff(patch3, patch4)).toEqual(result1);
-    expect(genDiff(patch5, patch6)).toEqual(result1);
-    expect(genDiff(patch1, patch4)).toEqual(result1);
-    expect(genDiff(patch1, patch6)).toEqual(result1);
-    expect(genDiff(patch3, patch6)).toEqual(result1);
+    expect(genDiff(patch1, patch2)).toEqual(result);
+    expect(genDiff(patch3, patch4)).toEqual(result);
+    expect(genDiff(patch5, patch6)).toEqual(result);
+    expect(genDiff(patch1, patch4)).toEqual(result);
+    expect(genDiff(patch1, patch6)).toEqual(result);
+    expect(genDiff(patch3, patch6)).toEqual(result);
 });
