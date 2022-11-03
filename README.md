@@ -8,6 +8,13 @@
 ### Test Coverage Badge
 <a href="https://codeclimate.com/github/semenChe/frontend-project-46/test_coverage"><img src="https://api.codeclimate.com/v1/badges/a4f12b1ecabfe4cea78f/test_coverage" /></a>
 
+### Описание
+Вычислитель отличий – программа, определяющая разницу между двумя структурами данных. Это популярная задача, для решения которой существует множество онлайн сервисов, например http://www.jsondiff.com/. Подобный механизм используется при выводе тестов или при автоматическом отслеживании изменении в конфигурационных файлах.
+
+## Возможности утилиты:
+- Поддержка разных входных форматов: yaml, json
+- Генерация отчета в виде plain text, stylish и json
+
 ## Пример запуска вычислителя отличий с файлами формата json. Обращение к файлам через относительный и абсолютный путь.
 <a href="https://asciinema.org/a/1rzdwuYPq8BdYRvuLXD8UwRLL" target="_blank"><img src="https://asciinema.org/a/1rzdwuYPq8BdYRvuLXD8UwRLL.svg" /></a>
 
@@ -19,6 +26,9 @@
 
 ## Пример запуска вычислителя для файлов, имеющих вложенные структуры (вывод в форматах stylish и plain)
 <a href="https://asciinema.org/a/Ad9kf75D3SfaN41TPk6splwHb" target="_blank"><img src="https://asciinema.org/a/Ad9kf75D3SfaN41TPk6splwHb.svg" /></a>
+
+## Пример запуска вычислителя для файлов, имеющих вложенные структуры (вывод в форматах stylish, plain и json)
+<a href="https://asciinema.org/a/vs0cKEbg7hmXPPrDGu8KOQDQ1" target="_blank"><img src="https://asciinema.org/a/vs0cKEbg7hmXPPrDGu8KOQDQ1.svg" /></a>
 
 ## Рекомендуемые минимальные требования к системе:
 ### Минимальные версии ОС:
