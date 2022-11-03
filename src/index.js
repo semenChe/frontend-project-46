@@ -1,8 +1,8 @@
 import _ from 'lodash';
-import getParsedData from './parsers.js'
-import stylish from './stylish.js'
+import getParsedData from './parsers.js';
+import formatters from './formatters/index.js';
 
-export default (path1, path2, format = 'stylish') => {
+export default (path1, path2, formatName = 'stylish') => {
     const data1 = getParsedData(path1);
     const data2 = getParsedData(path2);
 
@@ -17,7 +17,7 @@ export default (path1, path2, format = 'stylish') => {
             } else if (!Object.hasOwn(data2, key)) {
                 acc[key] = { difference: 'deleted', value: data1[key] };  // ключ был в первом объекте, но отсутствует во втором
             } else if (data1[key] !== data2[key] && _.isObject(data1[key]) && _.isObject(data2[key])) {
-                acc[key] = { difference: 'changed with children', value: genDiff(data1[key], data2[key]) }; // оба значения
+                acc[key] = { difference: 'changed with children', value: genDiff(data1[key], data2[key]) }; // оба значения объекты
             } else if (data1[key] !== data2[key]) {
                 acc[key] = { difference: 'changed', value1: data1[key], value2: data2[key] }; // ключ присутствовал и в первом и во втором объектах, но значения отличаются
             } else {
@@ -26,8 +26,5 @@ export default (path1, path2, format = 'stylish') => {
             return acc;
         }, {});
     };
-    if (format === '000') {
-        return '000'
-    }
-    return stylish(genDiff(data1, data2));
+    return formatters(genDiff(data1, data2), formatName);
 };

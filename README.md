@@ -11,11 +11,14 @@
 ## Пример запуска вычислителя отличий с файлами формата json. Обращение к файлам через относительный и абсолютный путь.
 <a href="https://asciinema.org/a/1rzdwuYPq8BdYRvuLXD8UwRLL" target="_blank"><img src="https://asciinema.org/a/1rzdwuYPq8BdYRvuLXD8UwRLL.svg" /></a>
 
-## Пример запуска вычислителя отличий с файлами формата yaml b yml. Обращение к файлам через относительный и абсолютный путь.
+## Пример запуска вычислителя отличий с файлами формата yaml и yml. Обращение к файлам через относительный и абсолютный путь.
 <a href="https://asciinema.org/a/GdaQkkFJNnNiaKekiSQM5141e" target="_blank"><img src="https://asciinema.org/a/GdaQkkFJNnNiaKekiSQM5141e.svg" /></a>
 
 ## Пример запуска вычислителя для файлов, имеющих вложенные структуры
 <a href="https://asciinema.org/a/pJ0xviFqMoxu0WcikASJKZh5l" target="_blank"><img src="https://asciinema.org/a/pJ0xviFqMoxu0WcikASJKZh5l.svg" /></a>
+
+## Пример запуска вычислителя для файлов, имеющих вложенные структуры (вывод в форматах stylish и plain)
+<a href="https://asciinema.org/a/Ad9kf75D3SfaN41TPk6splwHb" target="_blank"><img src="https://asciinema.org/a/Ad9kf75D3SfaN41TPk6splwHb.svg" /></a>
 
 ## Рекомендуемые минимальные требования к системе:
 ### Минимальные версии ОС:

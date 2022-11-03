@@ -1,8 +1,10 @@
 import _ from 'lodash';
 
-export default (value, replacer = ' ', spacesCount = 2) => {
+export default (diff) => {
     const iter = (currentValue, depth) => {
 
+        const replacer = ' ';
+        const spacesCount = 2;
         const indentSize = depth * spacesCount;
         const currentIndent = replacer.repeat(indentSize);
         const bracketIndent = replacer.repeat(indentSize - spacesCount);
@@ -49,5 +51,5 @@ export default (value, replacer = ' ', spacesCount = 2) => {
         ].join('\n');
     };
 
-    return iter(value, 1);
+    return iter(diff, 1);
 };

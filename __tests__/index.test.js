@@ -17,12 +17,20 @@ test('genDiff', () => {
     const patch5 = getFixturePath('file5.yml');
     const patch6 = getFixturePath('file6.yml');
 
-    const result = fs.readFileSync(getFixturePath('result.txt'), 'utf8');
+    const result1 = fs.readFileSync(getFixturePath('result-stylish.txt'), 'utf8');
+    const result2 = fs.readFileSync(getFixturePath('result-plain.txt'), 'utf8');
 
-    expect(genDiff(patch1, patch2)).toEqual(result);
-    expect(genDiff(patch3, patch4)).toEqual(result);
-    expect(genDiff(patch5, patch6)).toEqual(result);
-    expect(genDiff(patch1, patch4)).toEqual(result);
-    expect(genDiff(patch1, patch6)).toEqual(result);
-    expect(genDiff(patch3, patch6)).toEqual(result);
+    expect(genDiff(patch1, patch2)).toEqual(result1);
+    expect(genDiff(patch3, patch4)).toEqual(result1);
+    expect(genDiff(patch5, patch6)).toEqual(result1);
+    expect(genDiff(patch1, patch4)).toEqual(result1);
+    expect(genDiff(patch1, patch6)).toEqual(result1);
+    expect(genDiff(patch3, patch6)).toEqual(result1);
+
+    expect(genDiff(patch1, patch2, 'plain')).toEqual(result2);
+    expect(genDiff(patch3, patch4, 'plain')).toEqual(result2);
+    expect(genDiff(patch5, patch6, 'plain')).toEqual(result2);
+    expect(genDiff(patch1, patch4, 'plain')).toEqual(result2);
+    expect(genDiff(patch1, patch6, 'plain')).toEqual(result2);
+    expect(genDiff(patch3, patch6, 'plain')).toEqual(result2);
 });
