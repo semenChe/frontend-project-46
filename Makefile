@@ -1,18 +1,21 @@
-install: install-deps
-
 install-deps:
 	npm ci
-
-test:
-	npx jest
-
-test-coverage:
-	npx jest --bail --coverage --coverageProvider=v8
-
-lint:
-	npx eslint .
+	npm link
 
 publish:
 	npm publish --dry-run
 
-.PHONY: test
+lint:
+	npx eslint .
+
+link:
+	npm link
+
+test:
+	npx jest
+
+test-watch:
+	npx jest --watch
+
+test-coverage:
+	npx jest --bail --coverage --coverageProvider=v8

@@ -1,12 +1,13 @@
-import { readFileSync } from 'fs';
-import path from 'path';
 import yaml from 'js-yaml';
 
-export default (configPath) => {
-  const format = path.extname(configPath);
-
-  if (format === '.json') {
-    return JSON.parse(readFileSync(configPath, 'utf-8'));
+export default (data, fileExtension) => {
+  switch (fileExtension) {
+    case 'json':
+      return JSON.parse(data);
+    case 'yml':
+    case 'yaml':
+      return yaml.load(data);
+    default:
+      throw new Error(`unknown file extension ${fileExtension}`);
   }
-  return yaml.load(readFileSync(configPath, 'utf-8'));
 };

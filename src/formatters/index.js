@@ -3,14 +3,14 @@ import stylish from './stylish.js';
 import jsonFormat from './jsonFormat.js';
 
 export default (diff, formatName) => {
-  if (formatName === 'plain') {
-    return plain(diff);
+  switch (formatName) {
+    case 'plain':
+      return plain(diff);
+    case 'json':
+      return jsonFormat(diff);
+    case 'stylish':
+      return stylish(diff);
+    default:
+      throw new Error(`output format ${formatName} not found`);
   }
-  if (formatName === 'json') {
-    return jsonFormat(diff);
-  }
-  if (formatName === 'stylish') {
-    return stylish(diff);
-  }
-  return `output format ${formatName} not found`;
 };

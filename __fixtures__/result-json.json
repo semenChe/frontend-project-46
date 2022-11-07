@@ -1,6 +1,6 @@
 {
   "common": {
-    "difference": "changed with children",
+    "difference": "nested",
     "value": {
       "setting1": {
         "difference": "unchanged",
@@ -16,14 +16,14 @@
         "value2": null
       },
       "setting6": {
-        "difference": "changed with children",
+        "difference": "nested",
         "value": {
           "key": {
             "difference": "unchanged",
             "value": "value"
           },
           "doge": {
-            "difference": "changed with children",
+            "difference": "nested",
             "value": {
               "wow": {
                 "difference": "changed",
@@ -55,7 +55,7 @@
     }
   },
   "group1": {
-    "difference": "changed with children",
+    "difference": "nested",
     "value": {
       "baz": {
         "difference": "changed",
