@@ -14,8 +14,8 @@ const helper = (value) => {
 };
 
 export default (diff) => {
-  const iter = (currentDiff, patch = '') => Object
-    .entries(currentDiff).sort()
+  const iter = (currentDiff, patch = '') => _.sortBy(Object
+    .entries(currentDiff))
     .flatMap(([key, val]) => {
       if (val.difference === 'changed with children') {
         return iter(val.value, `${patch}${key}.`);
