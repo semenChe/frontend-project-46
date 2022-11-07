@@ -11,26 +11,19 @@ export default (path1, path2, formatName = 'stylish') => {
     const keys2 = Object.keys(data2);
     const keys = _.union(keys1, keys2);
 
-    return keys.reduce((acc, key) => {
+    const resss = keys.map((key) => {
       if (!Object.hasOwn(data1, key)) {
-        acc[key] = { difference: 'added', value: data2[key] }; // ключ отсутствовал в первом объекте, но был добавлен во второй
-        return acc;
+        return [key, { difference: 'added', value: data2[key] }]; // ключ отсутствовал в первом объекте, но был добавлен во второй
+      } if (!Object.hasOwn(data2, key)) {
+        return [key, { difference: 'deleted', value: data1[key] }]; // ключ был в первом объекте, но отсутствует во втором
+      } if (data1[key] !== data2[key] && _.isObject(data1[key]) && _.isObject(data2[key])) {
+        return [key, { difference: 'changed with children', value: genDiff(data1[key], data2[key]) }]; // оба значения объекты
+      } if (data1[key] !== data2[key]) {
+        return [key, { difference: 'changed', value1: data1[key], value2: data2[key] }]; // ключ присутствовал и в первом и во втором объектах, но значения отличаются
       }
-      if (!Object.hasOwn(data2, key)) {
-        acc[key] = { difference: 'deleted', value: data1[key] }; // ключ был в первом объекте, но отсутствует во втором
-        return acc;
-      }
-      if (data1[key] !== data2[key] && _.isObject(data1[key]) && _.isObject(data2[key])) {
-        acc[key] = { difference: 'changed with children', value: genDiff(data1[key], data2[key]) }; // оба значения объекты
-        return acc;
-      }
-      if (data1[key] !== data2[key]) {
-        acc[key] = { difference: 'changed', value1: data1[key], value2: data2[key] }; // ключ присутствовал и в первом и во втором объектах, но значения отличаются
-        return acc;
-      }
-      acc[key] = { difference: 'unchanged', value: data1[key] }; // ключ присутствовал и в первом и во втором объектах с одинаковыми значениями
-      return acc;
-    }, {});
+      return [key, { difference: 'unchanged', value: data1[key] }]; // ключ присутствовал и в первом и во втором объектах с одинаковыми значениями
+    });
+    return _.fromPairs(resss);
   };
   return formatters(genDiff(dataFile1, dataFile2), formatName);
 };
