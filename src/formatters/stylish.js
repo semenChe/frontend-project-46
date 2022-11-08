@@ -12,7 +12,7 @@ export default (diff) => {
     const currentIndent = replacer.repeat(indentSize);
     const bracketIndent = replacer.repeat(indentSize - spacesCount);
 
-    const lines = _.sortBy(Object.entries(currentValue))
+    const lines = Object.entries(currentValue)
       .map(([key, val]) => {
         if (val.difference === 'nested') {
           return `${currentIndent}  ${key}: ${iter(val.value, depth + 2)}`;

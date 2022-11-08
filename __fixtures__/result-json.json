@@ -2,6 +2,10 @@
   "common": {
     "difference": "nested",
     "value": {
+      "follow": {
+        "difference": "added",
+        "value": false
+      },
       "setting1": {
         "difference": "unchanged",
         "value": "Value 1"
@@ -15,13 +19,19 @@
         "value1": true,
         "value2": null
       },
+      "setting4": {
+        "difference": "added",
+        "value": "blah blah"
+      },
+      "setting5": {
+        "difference": "added",
+        "value": {
+          "key5": "value5"
+        }
+      },
       "setting6": {
         "difference": "nested",
         "value": {
-          "key": {
-            "difference": "unchanged",
-            "value": "value"
-          },
           "doge": {
             "difference": "nested",
             "value": {
@@ -32,24 +42,14 @@
               }
             }
           },
+          "key": {
+            "difference": "unchanged",
+            "value": "value"
+          },
           "ops": {
             "difference": "added",
             "value": "vops"
           }
-        }
-      },
-      "follow": {
-        "difference": "added",
-        "value": false
-      },
-      "setting4": {
-        "difference": "added",
-        "value": "blah blah"
-      },
-      "setting5": {
-        "difference": "added",
-        "value": {
-          "key5": "value5"
         }
       }
     }

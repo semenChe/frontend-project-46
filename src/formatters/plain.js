@@ -11,8 +11,8 @@ const stringify = (value) => {
 };
 
 export default (diff) => {
-  const iter = (currentDiff, patch = '') => _.sortBy(Object
-    .entries(currentDiff))
+  const iter = (currentDiff, patch = '') => Object
+    .entries(currentDiff)
     .flatMap(([key, val]) => {
       if (val.difference === 'nested') {
         return iter(val.value, `${patch}${key}.`);
