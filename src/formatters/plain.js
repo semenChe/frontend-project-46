@@ -23,10 +23,7 @@ export default (diff) => {
       if (val.difference === 'deleted') {
         return `Property '${patch}${key}' was removed`;
       }
-      if (val.difference === 'changed') {
-        return `Property '${patch}${key}' was updated. From ${stringify(val.value1)} to ${stringify(val.value2)}`;
-      }
-      return [];
+      return (val.difference === 'changed') ? `Property '${patch}${key}' was updated. From ${stringify(val.value1)} to ${stringify(val.value2)}` : [];
     }).join('\n');
   return iter(diff);
 };
