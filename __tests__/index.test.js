@@ -8,16 +8,24 @@ const __dirname = dirname(__filename);
 
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 
-const extensions = ['json', 'yaml', 'yml'];
-const result1 = fs.readFileSync(getFixturePath('result-stylish.txt'), 'utf8');
-const result2 = fs.readFileSync(getFixturePath('result-plain.txt'), 'utf8');
-const result3 = fs.readFileSync(getFixturePath('result-json.json'), 'utf8');
+const extensions = [
+  ['json', 'json', undefined, 'result-stylish.txt'], ['yaml', 'yaml', undefined, 'result-stylish.txt'],
+  ['yml', 'yml', undefined, 'result-stylish.txt'], ['json', 'yaml', undefined, 'result-stylish.txt'],
 
-test.each(extensions)('.add(%s)', (extension) => {
-  const fileAfter = getFixturePath(`file1.${extension}`);
-  const fileBefore = getFixturePath(`file2.${extension}`);
+  ['json', 'json', 'stylish', 'result-stylish.txt'], ['yaml', 'yaml', 'stylish', 'result-stylish.txt'],
+  ['yml', 'yml', 'stylish', 'result-stylish.txt'], ['json', 'yaml', 'stylish', 'result-stylish.txt'],
 
-  expect(genDiff(fileAfter, fileBefore)).toEqual(result1);
-  expect(genDiff(fileAfter, fileBefore, 'plain')).toEqual(result2);
-  expect(genDiff(fileAfter, fileBefore, 'json')).toEqual(result3);
+  ['json', 'json', 'plain', 'result-plain.txt'], ['yaml', 'yaml', 'plain', 'result-plain.txt'],
+  ['yml', 'yml', 'plain', 'result-plain.txt'], ['json', 'yaml', 'plain', 'result-plain.txt'],
+
+  ['json', 'json', 'json', 'result-json.json'], ['yaml', 'yaml', 'json', 'result-json.json'],
+  ['yml', 'yml', 'json', 'result-json.json'], ['json', 'yaml', 'json', 'result-json.json'],
+];
+
+test.each(extensions)('file extensions and format(%s, %s, %s)', (file1Extension, file2Extension, format, resultFile) => {
+  const fileAfter = getFixturePath(`file1.${file1Extension}`);
+  const fileBefore = getFixturePath(`file2.${file2Extension}`);
+  const result = fs.readFileSync(getFixturePath(resultFile), 'utf8');
+
+  expect(genDiff(fileAfter, fileBefore, format)).toEqual(result);
 });

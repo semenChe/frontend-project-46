@@ -1,9 +1,6 @@
 import _ from 'lodash';
 
 const stringify = (value) => {
-  if (_.isBoolean(value)) {
-    return value ? 'true' : 'false';
-  }
   if (_.isObject(value)) {
     return '[complex value]';
   }
