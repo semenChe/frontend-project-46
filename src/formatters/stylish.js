@@ -10,21 +10,23 @@ export default (value) => {
     const indentSize = depth * spacesCount;
     const currentIndent = replacer.repeat(indentSize);
     const bracketIndent = replacer.repeat(indentSize - spacesCount);
-    const lines = Object
-      .entries(currentValue)
-      .map(([key, val]) => {
-        switch (val.difference) {
-          case 'changed':
-            return `${currentIndent}- ${key}: ${iter(val.value1, depth + 2)
-            }\n${currentIndent}+ ${key}: ${iter(val.value2, depth + 2)}`;
-          case 'added':
-            return `${currentIndent}+ ${key}: ${iter(val.value, depth + 2)}`;
-          case 'deleted':
-            return `${currentIndent}- ${key}: ${iter(val.value, depth + 2)}`;
-          default:
-            return `${currentIndent}  ${key}: ${iter(val.value || val, depth + 2)}`;
-        }
-      });
+
+    const stringify = (data) => {
+      const [key, val] = data;
+      switch (val.difference) {
+        case 'changed':
+          return `${currentIndent}- ${key}: ${iter(val.value1, depth + 2)
+          }\n${currentIndent}+ ${key}: ${iter(val.value2, depth + 2)}`;
+        case 'added':
+          return `${currentIndent}+ ${key}: ${iter(val.value, depth + 2)}`;
+        case 'deleted':
+          return `${currentIndent}- ${key}: ${iter(val.value, depth + 2)}`;
+        default:
+          return `${currentIndent}  ${key}: ${iter(val.value || val, depth + 2)}`;
+      }
+    };
+
+    const lines = Object.entries(currentValue).map((data) => stringify(data));
     return ['{', ...lines, `${bracketIndent}}`].join('\n');
   };
 
