@@ -1,5 +1,7 @@
-install-deps:
+install:
 	npm ci
+
+link:
 	npm link
 
 publish:
@@ -7,9 +9,6 @@ publish:
 
 lint:
 	npx eslint .
-
-link:
-	npm link
 
 test:
 	npx jest

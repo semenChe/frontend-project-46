@@ -19,7 +19,7 @@
 * Обновите Node.js до последней версии: введите командную строку apt upgrade nodejs
 * Чтобы вы могли устанавливать модули и пакеты с Node.js, установите пакет npm: введите командную строку apt install npm
 * Клонируйте этот репозиторий: https://github.com/semenChe/frontend-project-46.git
-* Добавьте и проверьте зависимости: введите командную строку make install
+* Добавьте и проверьте зависимости: введите командную строку make install-deps
 
 ## Пример запуска вычислителя отличий с файлами формата json. Обращение к файлам через относительный и абсолютный путь.
 <a href="https://asciinema.org/a/1rzdwuYPq8BdYRvuLXD8UwRLL" target="_blank"><img src="https://asciinema.org/a/1rzdwuYPq8BdYRvuLXD8UwRLL.svg" /></a>
