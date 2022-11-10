@@ -2,6 +2,20 @@ import _ from 'lodash';
 
 const replacer = ' ';
 const spacesCount = 2;
+const stringify = (data, indent, handlerFunction, depth) => {
+  const [key, val] = data;
+  switch (val.difference) {
+    case 'changed':
+      return `${indent}- ${key}: ${handlerFunction(val.value1, depth + 2)
+      }\n${indent}+ ${key}: ${handlerFunction(val.value2, depth + 2)}`;
+    case 'added':
+      return `${indent}+ ${key}: ${handlerFunction(val.value, depth + 2)}`;
+    case 'deleted':
+      return `${indent}- ${key}: ${handlerFunction(val.value, depth + 2)}`;
+    default:
+      return `${indent}  ${key}: ${handlerFunction(val.value || val, depth + 2)}`;
+  }
+};
 
 export default (value) => {
   const iter = (currentValue, depth) => {
@@ -11,22 +25,9 @@ export default (value) => {
     const currentIndent = replacer.repeat(indentSize);
     const bracketIndent = replacer.repeat(indentSize - spacesCount);
 
-    const stringify = (data) => {
-      const [key, val] = data;
-      switch (val.difference) {
-        case 'changed':
-          return `${currentIndent}- ${key}: ${iter(val.value1, depth + 2)
-          }\n${currentIndent}+ ${key}: ${iter(val.value2, depth + 2)}`;
-        case 'added':
-          return `${currentIndent}+ ${key}: ${iter(val.value, depth + 2)}`;
-        case 'deleted':
-          return `${currentIndent}- ${key}: ${iter(val.value, depth + 2)}`;
-        default:
-          return `${currentIndent}  ${key}: ${iter(val.value || val, depth + 2)}`;
-      }
-    };
-
-    const lines = Object.entries(currentValue).map((data) => stringify(data));
+    const lines = Object
+      .entries(currentValue)
+      .map((data) => stringify(data, currentIndent, iter, depth));
     return ['{', ...lines, `${bracketIndent}}`].join('\n');
   };
 
