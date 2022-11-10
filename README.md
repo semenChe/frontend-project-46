@@ -1,15 +1,16 @@
-### Hexlet tests and linter status:
 [![Actions Status](https://github.com/semenChe/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/semenChe/frontend-project-46/actions)
-### Node CI
 [![Node CI](https://github.com/semenChe/frontend-project-46/actions/workflows/nodejs.yml/badge.svg?event=push)](https://github.com/semenChe/frontend-project-46/actions/workflows/nodejs.yml)
-### maintainability codeclimate
 <a href="https://codeclimate.com/github/semenChe/frontend-project-46/maintainability"><img src="https://api.codeclimate.com/v1/badges/a4f12b1ecabfe4cea78f/maintainability" /></a>
-
-### Test Coverage Badge
 <a href="https://codeclimate.com/github/semenChe/frontend-project-46/test_coverage"><img src="https://api.codeclimate.com/v1/badges/a4f12b1ecabfe4cea78f/test_coverage" /></a>
+
+# ВЫЧИСЛИТЕЛЬ ОТЛИЧИЙ
 
 ## Описание
 Вычислитель отличий – программа, определяющая разницу между двумя структурами данных. Это популярная задача, для решения которой существует множество онлайн сервисов, например http://www.jsondiff.com/. Подобный механизм используется при выводе тестов или при автоматическом отслеживании изменении в конфигурационных файлах.
+
+## Возможности утилиты:
+- Поддержка разных входных форматов: yaml, json
+- Генерация отчета в виде plain text, stylish и json
 
 ## Установка
 ### Перед запуском программы выполните следующие действия:
@@ -19,10 +20,6 @@
 * Чтобы вы могли устанавливать модули и пакеты с Node.js, установите пакет npm: введите командную строку apt install npm
 * Клонируйте этот репозиторий: https://github.com/semenChe/frontend-project-46.git
 * Добавьте и проверьте зависимости: введите командную строку make install
-
-## Возможности утилиты:
-- Поддержка разных входных форматов: yaml, json
-- Генерация отчета в виде plain text, stylish и json
 
 ## Пример запуска вычислителя отличий с файлами формата json. Обращение к файлам через относительный и абсолютный путь.
 <a href="https://asciinema.org/a/1rzdwuYPq8BdYRvuLXD8UwRLL" target="_blank"><img src="https://asciinema.org/a/1rzdwuYPq8BdYRvuLXD8UwRLL.svg" /></a>
